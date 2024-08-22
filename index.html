@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            height:100%;
+            /* padding-bottom: 300px; */
+            background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+
+        }
+        .container{
+            display: flex;
+            height:250px;
+            width:500px;
+            border-radius: 20px;
+            /* background-color: rgb(189, 159, 218); */
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            margin: 0 auto;
+            margin-top: 150px;
+            border:10px solid rgb(15, 0, 128);
+            background: rgb(34,193,195);
+            background: linear-gradient(0deg, rgba(4,193,195,1) 0%, rgba(255,255,25,1) 100%);
+
+        }
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
+        span{
+            position: relative;
+            font-size: 100px;
+            padding-top: 0px;
+            margin-top: 0px;
+            
+        }
+        #hr::after{
+            content: "HOUR";
+            font-size: small;
+            position: absolute;
+            bottom:-4px;
+            left:30px;
+            text-align: center;
+            }
+        #min::after{
+            content: "MINUTES";
+            font-size: small;
+            position: absolute;
+            bottom:-4px;
+            left:20px;
+            text-align: center;
+            
+           }
+        #sec::after{
+            content: "SECONDS";
+            font-size: small;
+            position: absolute;
+            bottom:-4px;
+            left:25px;
+            text-align: center;
+            
+            }
+        span:hover{
+            color:rgb(25, 0, 255);
+            tra
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="elements">
+            <!-- <marquee> -->
+            <p id="day">day</p>
+            <p id="day1">day</p>
+            <!-- </marquee> -->
+            
+       
+            <span id="hr">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+            
+        </div>
+    </div>
+    <script>
+        const hour=document.getElementById("hr");
+        const minutes=document.getElementById("min");
+        const seconds=document.getElementById("sec");
+        const day=document.getElementById("day");
+        //  const day1=document.getElementById("day1");
+        
+        function circle(){
+        const today=new Date();
+        const currentHour=(( today.getHours()%12)<10?"0":"")+today.getHours()%12;
+        const currentMin=(today.getMinutes()<10 ?"0":"") +today.getMinutes();
+        const currentSec=(today.getSeconds()<10 ?"0":"") +today.getSeconds();
+        const today1=today.toLocaleDateString();
+        const today2=today.getDay();
+        const array=["Sunaday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
+        hour.innerHTML=currentHour;
+        minutes.innerHTML=currentMin;
+        seconds.innerHTML=currentSec;
+        day.innerHTML=today1;
+        day1.innerHTML=array[today2];
+        }
+        setInterval(circle,1000);
+    </script>
+</body>
+</html>
