@@ -67,7 +67,7 @@
             }
         span:hover{
             color:rgb(25, 0, 255);
-            tra
+        
         }
     </style>
 </head>
@@ -76,7 +76,7 @@
         
         <div class="elements">
             <!-- <marquee> -->
-            <p id="day">day</p>
+            <p id="day">date</p>
             <p id="day1">day</p>
             <!-- </marquee> -->
             
@@ -94,16 +94,17 @@
         const minutes=document.getElementById("min");
         const seconds=document.getElementById("sec");
         const day=document.getElementById("day");
-        //  const day1=document.getElementById("day1");
         
         function circle(){
         const today=new Date();
-        const currentHour=(( today.getHours()%12)<10?"0":"")+today.getHours()%12;
+        const currentHour=(( today.getHours()%12)<10? "0":"")+today.getHours()%12;
         const currentMin=(today.getMinutes()<10 ?"0":"") +today.getMinutes();
         const currentSec=(today.getSeconds()<10 ?"0":"") +today.getSeconds();
         const today1=today.toLocaleDateString();
         const today2=today.getDay();
         const array=["Sunaday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
+
+        
         hour.innerHTML=currentHour;
         minutes.innerHTML=currentMin;
         seconds.innerHTML=currentSec;
